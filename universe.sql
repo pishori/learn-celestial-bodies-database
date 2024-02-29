@@ -44,6 +44,16 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- Name: distance_from_earth; Type: TABLE; Schema: public; Owner: freecodecamp
+--
+
+CREATE TABLE public.distance_from_earth (
+);
+
+
+ALTER TABLE public.distance_from_earth OWNER TO freecodecamp;
+
+--
 -- Name: galaxy; Type: TABLE; Schema: public; Owner: freecodecamp
 --
 
@@ -82,6 +92,12 @@ CREATE TABLE public.star (
 
 
 ALTER TABLE public.star OWNER TO freecodecamp;
+
+--
+-- Data for Name: distance_from_earth; Type: TABLE DATA; Schema: public; Owner: freecodecamp
+--
+
+
 
 --
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: freecodecamp
