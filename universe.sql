@@ -268,6 +268,10 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 --
 
 INSERT INTO public.galaxy VALUES (1, 'Milky Way', 87400, 26670.00, 'milky');
+INSERT INTO public.galaxy VALUES (2, 'Andromeda', 1000000000, 2.36, 'beautiful daughter of King Cepheus');
+INSERT INTO public.galaxy VALUES (3, 'Triangulum', 1500000000, 2.73, 'spiral galaxy');
+INSERT INTO public.galaxy VALUES (4, 'Whirlpool', 400, 31.00, 'spiral galaxy');
+INSERT INTO public.galaxy VALUES (5, 'Orion', 6, 800.00, 'It consists of the three bright stars Zeta, Epsilon and Delta.');
 
 
 --
@@ -298,7 +302,7 @@ INSERT INTO public.galaxy VALUES (1, 'Milky Way', 87400, 26670.00, 'milky');
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 1, true);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 5, true);
 
 
 --
