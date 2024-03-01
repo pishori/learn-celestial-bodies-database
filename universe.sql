@@ -304,15 +304,16 @@ INSERT INTO public.moon VALUES (10, 'Sinope', NULL, NULL, 5);
 INSERT INTO public.moon VALUES (11, 'Kale', NULL, NULL, 5);
 INSERT INTO public.moon VALUES (12, 'Mneme', NULL, NULL, 5);
 INSERT INTO public.moon VALUES (13, 'Phoebe', NULL, NULL, 6);
-INSERT INTO public.moon VALUES (17, 'Dione', NULL, NULL, 6);
-INSERT INTO public.moon VALUES (18, 'Rhea', NULL, NULL, 6);
-INSERT INTO public.moon VALUES (19, 'Titan', NULL, NULL, 6);
-INSERT INTO public.moon VALUES (20, 'Helene', NULL, NULL, 6);
-INSERT INTO public.moon VALUES (21, 'Ariel', NULL, NULL, 7);
-INSERT INTO public.moon VALUES (22, 'Miranda', NULL, NULL, 7);
-INSERT INTO public.moon VALUES (23, 'Juliet', NULL, NULL, 7);
-INSERT INTO public.moon VALUES (24, 'Triton', NULL, NULL, 8);
-INSERT INTO public.moon VALUES (25, 'Charon', NULL, NULL, 9);
+INSERT INTO public.moon VALUES (14, 'Dione', NULL, NULL, 6);
+INSERT INTO public.moon VALUES (15, 'Rhea', NULL, NULL, 6);
+INSERT INTO public.moon VALUES (16, 'Titan', NULL, NULL, 6);
+INSERT INTO public.moon VALUES (17, 'Helene', NULL, NULL, 6);
+INSERT INTO public.moon VALUES (18, 'Ariel', NULL, NULL, 7);
+INSERT INTO public.moon VALUES (19, 'Miranda', NULL, NULL, 7);
+INSERT INTO public.moon VALUES (20, 'Juliet', NULL, NULL, 7);
+INSERT INTO public.moon VALUES (21, 'Triton', NULL, NULL, 8);
+INSERT INTO public.moon VALUES (22, 'Charon', NULL, NULL, 9);
+INSERT INTO public.moon VALUES (23, 'Nix', NULL, NULL, 9);
 
 
 --
