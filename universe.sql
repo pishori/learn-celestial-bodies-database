@@ -196,11 +196,11 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 
 CREATE TABLE public.star (
     star_id integer NOT NULL,
-    name character varying(30),
+    name character varying(30) NOT NULL,
     description text,
     age_in_millions_of_years integer,
     distance_from_earth integer,
-    galaxy_id integer NOT NULL
+    galaxy_id integer
 );
 
 
@@ -273,6 +273,9 @@ INSERT INTO public.galaxy VALUES (3, 'Triangulum', 1500000000, 2.73, 'spiral gal
 INSERT INTO public.galaxy VALUES (4, 'Whirlpool', 400, 31.00, 'spiral galaxy');
 INSERT INTO public.galaxy VALUES (5, 'Orion', 6, 800.00, 'It consists of the three bright stars Zeta, Epsilon and Delta.');
 INSERT INTO public.galaxy VALUES (6, 'Sombrero', 1325000000, 29.35, 'unclear classification in the constellation borders of Virgo and Corvus');
+INSERT INTO public.galaxy VALUES (7, 'Hercules', NULL, NULL, NULL);
+INSERT INTO public.galaxy VALUES (8, 'Delphinus', NULL, NULL, NULL);
+INSERT INTO public.galaxy VALUES (9, 'Draco', NULL, NULL, NULL);
 
 
 --
@@ -291,25 +294,43 @@ INSERT INTO public.galaxy VALUES (6, 'Sombrero', 1325000000, 29.35, 'unclear cla
 -- Data for Name: planet; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.planet VALUES (1, 'Mercury', false, true, 'innermost planet of the solar system', 7);
+INSERT INTO public.planet VALUES (2, 'Venus', false, true, 'second planet from the sun', 7);
+INSERT INTO public.planet VALUES (3, 'Earth', true, true, 'third planet from the sun', 7);
+INSERT INTO public.planet VALUES (4, 'Mars', false, true, 'fourth planet from the sun', 7);
+INSERT INTO public.planet VALUES (5, 'Jupiter', false, true, 'fifth planet from the sun', 7);
+INSERT INTO public.planet VALUES (6, 'Saturn', false, true, 'sixth planet from the sun', 7);
+INSERT INTO public.planet VALUES (7, 'Uranus', false, true, 'seventh planet from the sun', 7);
+INSERT INTO public.planet VALUES (8, 'Neptune', false, true, 'eighth planet from the sun', 7);
+INSERT INTO public.planet VALUES (9, 'Pluto', false, true, 'ninth planet from the sun', 7);
+INSERT INTO public.planet VALUES (10, '14 Herculis b', NULL, NULL, NULL, 8);
+INSERT INTO public.planet VALUES (11, 'Arion', NULL, NULL, NULL, 9);
+INSERT INTO public.planet VALUES (12, 'Spe', NULL, NULL, NULL, 10);
+INSERT INTO public.planet VALUES (13, 'Orbitar', NULL, NULL, NULL, 11);
 
 
 --
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
-INSERT INTO public.star VALUES (1, 'Sirius', 'the brightest star in the milky way', 230, 9, 1);
 INSERT INTO public.star VALUES (2, 'Alpheratz', 'the brightest star in Andromeda', 60, 97, 2);
 INSERT INTO public.star VALUES (3, 'Beta Trianguli', 'the brightest star in the Triangulum galaxy', 12, 40, 3);
 INSERT INTO public.star VALUES (4, 'Messier', 'the brightest star in the Whirlpool galaxy', 400, 24500, 4);
 INSERT INTO public.star VALUES (5, 'Zeta', 'the brightest star in the Orion galaxy', 800, 11, 5);
 INSERT INTO public.star VALUES (6, 'Virgo', 'the brightest star in the Sombrero galaxy', 500000000, 65, 6);
+INSERT INTO public.star VALUES (1, 'Sirius', 'the brightest star in the milky way', 230, 9, 1);
+INSERT INTO public.star VALUES (7, 'Sun', 'star at the centre of the solar system', 4000000, 148, 1);
+INSERT INTO public.star VALUES (8, 'star 14 Herculis', NULL, NULL, NULL, 7);
+INSERT INTO public.star VALUES (9, 'star 18 Delphini', NULL, NULL, NULL, 8);
+INSERT INTO public.star VALUES (10, 'star 14 Andromedae', NULL, NULL, NULL, 2);
+INSERT INTO public.star VALUES (11, 'star 42 Draconis', NULL, NULL, NULL, 9);
 
 
 --
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 9, true);
 
 
 --
@@ -330,14 +351,14 @@ SELECT pg_catalog.setval('public.moon_moon_id_seq', 1, false);
 -- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.planet_planet_id_seq', 1, true);
+SELECT pg_catalog.setval('public.planet_planet_id_seq', 13, true);
 
 
 --
 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_star_id_seq', 6, true);
+SELECT pg_catalog.setval('public.star_star_id_seq', 11, true);
 
 
 --
@@ -389,6 +410,14 @@ ALTER TABLE ONLY public.moon
 
 
 --
+-- Name: planet planet_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+--
+
+ALTER TABLE ONLY public.planet
+    ADD CONSTRAINT planet_name_key UNIQUE (name);
+
+
+--
 -- Name: planet planet_pkey; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
@@ -397,19 +426,11 @@ ALTER TABLE ONLY public.planet
 
 
 --
--- Name: planet planet_star_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
---
-
-ALTER TABLE ONLY public.planet
-    ADD CONSTRAINT planet_star_id_key UNIQUE (star_id);
-
-
---
--- Name: star star_galaxy_id_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
+-- Name: star star_name_key; Type: CONSTRAINT; Schema: public; Owner: freecodecamp
 --
 
 ALTER TABLE ONLY public.star
-    ADD CONSTRAINT star_galaxy_id_key UNIQUE (galaxy_id);
+    ADD CONSTRAINT star_name_key UNIQUE (name);
 
 
 --
