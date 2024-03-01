@@ -197,10 +197,10 @@ ALTER SEQUENCE public.planet_planet_id_seq OWNED BY public.planet.planet_id;
 CREATE TABLE public.star (
     star_id integer NOT NULL,
     name character varying(30),
-    galaxy_id integer NOT NULL,
     description text,
     age_in_millions_of_years integer,
-    distance_from_earth integer
+    distance_from_earth integer,
+    galaxy_id integer NOT NULL
 );
 
 
@@ -272,6 +272,7 @@ INSERT INTO public.galaxy VALUES (2, 'Andromeda', 1000000000, 2.36, 'beautiful d
 INSERT INTO public.galaxy VALUES (3, 'Triangulum', 1500000000, 2.73, 'spiral galaxy');
 INSERT INTO public.galaxy VALUES (4, 'Whirlpool', 400, 31.00, 'spiral galaxy');
 INSERT INTO public.galaxy VALUES (5, 'Orion', 6, 800.00, 'It consists of the three bright stars Zeta, Epsilon and Delta.');
+INSERT INTO public.galaxy VALUES (6, 'Sombrero', 1325000000, 29.35, 'unclear classification in the constellation borders of Virgo and Corvus');
 
 
 --
@@ -296,13 +297,19 @@ INSERT INTO public.galaxy VALUES (5, 'Orion', 6, 800.00, 'It consists of the thr
 -- Data for Name: star; Type: TABLE DATA; Schema: public; Owner: freecodecamp
 --
 
+INSERT INTO public.star VALUES (1, 'Sirius', 'the brightest star in the milky way', 230, 9, 1);
+INSERT INTO public.star VALUES (2, 'Alpheratz', 'the brightest star in Andromeda', 60, 97, 2);
+INSERT INTO public.star VALUES (3, 'Beta Trianguli', 'the brightest star in the Triangulum galaxy', 12, 40, 3);
+INSERT INTO public.star VALUES (4, 'Messier', 'the brightest star in the Whirlpool galaxy', 400, 24500, 4);
+INSERT INTO public.star VALUES (5, 'Zeta', 'the brightest star in the Orion galaxy', 800, 11, 5);
+INSERT INTO public.star VALUES (6, 'Virgo', 'the brightest star in the Sombrero galaxy', 500000000, 65, 6);
 
 
 --
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 5, true);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 
 
 --
@@ -330,7 +337,7 @@ SELECT pg_catalog.setval('public.planet_planet_id_seq', 1, true);
 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.star_star_id_seq', 1, false);
+SELECT pg_catalog.setval('public.star_star_id_seq', 6, true);
 
 
 --
